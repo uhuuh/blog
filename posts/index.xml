@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on uh</title>
+    <link>https://uhuuh.github.io/posts/</link>
+    <description>Recent content in Posts on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://uhuuh.github.io/posts/docker/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/docker/</guid>
+      <description> (https://www.cnblogs.com/mxnote/p/17101905.html)[docker启动容器后, 马上结束 - MasonLee - 博客园 (cnblogs.com)] 容器中没有一直运行的进程的会自动退出 网络 (Docker的4种网络模式-阿里云开发者社区)[https://developer.aliyun.com/article/653905] 提供如下网络模式
+host 与宿主机在一个网络环境 container 与一个容器在一个网络环境 bridge 连接到一个网络空间中。默认模式 none 与外部没有网路连接 bridge模式通信，依靠linux的网络命名空间实现
+容器之间通信 运行容器时通过name选项指定主机名，再通过dns解析到合适的容器ip地址 宿主机访问容器 运行容器时通过p选项指定要暴露的端口 容器访问宿主机 通过host.docker.internal域名，再通过dns解析到合适的宿主机环回网卡ip地址 </description>
+    </item>
+    <item>
+      <title>Linux IO模型</title>
+      <link>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</guid>
+      <description>总览
+阻塞就是发起读取数据请求的时，当数据还没准备就绪的时候，这时请求是即刻返回，还是在这里等待数据的就绪，如果需要等待的话就是阻塞，反之如果即刻返回就是非阻塞 在IO模型里面如果请求方从发起请求到数据最后完成的这一段过程中都需要自己参与，那么这种我们就称为同步请求；反之，如果应用发送完指令后就不再参与过程了，只需要等待最终完成结果的通知，那么这就属于异步 阻塞IO
+调用read时, 将进程添加进socket的等待队列中 网卡接受到数据时触发中断, 保存网络数据到socket的缓存中, 唤醒等待队列中的进程 非阻塞IO
+多路复用IO
+select 使用一个位数组保存监听的一系列socket, 该位数组中第i位为1时, 说明监听fd为i的socket 调用时, 将位数组复制到内核中, 依次检查位数组中的有效socket是否有可处理事件, 如果有可处理事件在另一个位数组中好对应的socket, 返回 缺点 监听的socket数量有限, 因为位数组的长度有限, 内核代码有限制位数组的最大长度 调用开销大, 每次调用都需要把位数组复制到内核中 调用时检查开销大, 每次检查时需要依次遍历位数组上的所有有效socket, 其开销与监听的socket呈线性关系 poll 克服了select的第一个缺点, 使用一个链表保存监听所有的socket epoll 在poll的基础上克服了select剩下的第二个和第三个缺点 内核内部维护一个红黑树和一个等待队列, 红黑树保存了d到监听事件的对应关系, 等待队列保存了有效的fd fd有效时, 将该fd添加到等待队列中 信号驱动IO
+当数据就绪时, 内核给应用发送一个信号, 应用调用信号处理函数, 该函数中调用read将数据从内核缓存区复制到应用缓存区 异步IO
+当数据就绪时, 内核将数据从内核缓存区复制到应用缓存区, 然后给应用发送一个信号 与信号驱动IO区别是, 内核将数据从内核缓存区复制到应用缓存区 问题 为什么select调用时要将位数组复制到内核, 内核使用位数组的指针不行吗? 是出于安全的考虑吗 socket细节, fd细节 参考 看一遍就理解：IO 模型详解-常用的io模型 (51cto.com) 五种IO模型介绍 100%弄明白5种IO模型 - 知乎 (zhihu.com) 最后部分中阻塞与非阻塞介绍, 同步与非同步介绍 IO多路复用——深入浅出理解select、poll、epoll的实现 - 知乎 (zhihu.</description>
+    </item>
+    <item>
+      <title>MYSQL</title>
+      <link>https://uhuuh.github.io/posts/mysql/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/mysql/</guid>
+      <description>查询优化 表底层使用B+树存储，树的节点是内存页，页内有多条记录，页按照主键值排序。表上的索引也是按照B+树存储，存储索引值和主键值。由于表和索引有类似的结构，表页叫聚簇索引，索引也叫二级索引。查询时使用到了索引，找到索引值和主键值，再根据主键值回聚簇索引找到对应的记录，这个过程叫回表，这也是二级索引名字的由来。 索引本身很复杂，可以有一列或者多列组成，也可以施加非空约束，施加唯一约束。主键实际上就是非空唯一索引 单表查询方法 查询只考虑设计单表，根据查询语句和表上信息可能做出一下区分 单索引时
+以下将主键视作非空唯一索引 多列索引当查询中只涉及前面几列时可以利用索引加快查询 查询类型 查询条件 说明 const 非空唯一索引等值查询 只需找到一条记录 ref 索引等值查询 由于索引不唯一，可能找到多条索引 ref_or_null 索引等值或为空查询 range 索引多个搜索区间查询 index 索引复杂查询 复杂查询中可能使用内置函数、多列索引使用后面几列，LIKE操作设定后面字符等。select的列都能在索引中找到 all 索引复杂查询 双索引时
+如果可以索引合并
+intersection，需要涉及索引顺序与主键一致。实现类似求两个有序数组的交集，不相等时丢掉小的元素，相等时加入结果数组中 union，需要涉及索引顺序与主键一致。实现类似求两个有序数组的并集，不相等时小的元素加入结果集，相等时任意丢掉一个元素 sort-union，不需要涉及索引顺序与主键一致。从A表中取所有合法记录，再从B表中取所有合法记录，两处合法记录排序后合并 否则就全表扫描，index或者all
+索引合并时需要索引涉及顺序与主键一致时，常见于等值查询，二级索引等值后再按照主键值排序
+==没有sort-intersection==
+即便是单表查询，查询语句很复杂，索引也有很多类型，好像很难解析单表查询语句得到具体的执行方法
+多表连接 两表连接，实际上定义一个与两表相关联的条件，求满足该条件的两表笛卡尔积子集。实现时一个表A作为驱动表，另一个表B作为被驱动表，每次从A中选择一个记录，再从B中选择满足条件的所有记录。所以驱动表只需要遍历一次，被驱动表要遍历多次 存在四种连接，内连接，左外连接，右外连接，全连接。这些连接在与驱动表的选择和连接条件的处理方式上不同。内连接对于连接条件不满足的记录不会显示在结果表中，其他连接则会，结果表中不满足的地方是空值代替。 sql在on语句中指定连接条件。由于内节点不满足该条件记录不显示结果表中，on作用与where作用一致，故内连接的on语句可以省略。 嵌套循环连接算法 从两表中选择一个查询代价小的表A作为驱动表，根据where中只涉及单表的查询语句进行判断 根据where中只涉及表A的查询语句，每次从驱动表获取一个合法记录 根据where中只涉及表B的查询语句（由于已经确定表A的一个记录，where中涉及两表的查询语句也转化成单表查询语句），每次从被驱动表中获取一个合法记录 依据连接类型和这两个记录是否满足on条件，决定结果是否返回两个记录连接和表B记录是否为空 重复上述过程，直到找到所有连接记录。处于节省内存的考虑，迭代式返回连接记录，但是运算速度稍慢。 基于块的嵌套循环连接算法 一次选择驱动表中多个合法记录，同时与被驱动表中的合法记录进行匹配，加快连接算法 数据库表连接的简单解释 - 阮一峰的网络日志 (ruanyifeng.com) 查询优化 成本主要分为cpu和io成本，cpu成本是判断记录是否满足条件的成本，io成本是读取页的成本
+all的成本。聚簇索引页数 * io常数 + 记录总数 * cpu常数，其中依次是加载聚簇索引页、读取聚簇索引页内容的成本 range的成本。扫描区间总页数 * io常数 + 扫描区间总记录数 * cpu常数 + 扫描区间总记录数 * io常数 + 扫描区间总记录数 * cpu常数，其中依次是加载二级索引页，读取二级索引页内容，根据每个二级索引页内容回表时加载聚簇索引页，读取聚簇索引页内容的成本 其中确定扫描总页数。需要根据区间左边界在二级索引中找到对应页，右边界同理。再根据左右边界页向上搜索到公共页，确定左右边界页中间一共有多少页 其中当单点扫描区间太多时，根据表的统计数据确定重复比例，大概确定单点区间中有多少记录和多少页 两表连接的成本。驱动表成本+驱动表合法记录数量 * 被驱动表成本 其中驱动表合法记录数量也叫扇出量 多表连接的成本。如果连接表的数量过少，直接穷举所有可能的连接，阶乘复杂度。否则使用某种启发式搜索算法 事务 事务需要满足一下四大特性</description>
+    </item>
+    <item>
+      <title>数据库原理</title>
+      <link>https://uhuuh.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</guid>
+      <description>绪论 数据的存储从文件系统过渡到数据库, 数据库相比于文件系统有以下优点
+文件系统 数据库 数据结构化 数据描述由应用的程序负责 引入逻辑模型由数据库本身维护数据描述 数据共享和独立性 针对不同的应用使用不同的文件保存数据 所有应用统一保存数据, 不同应用的数据之间尽可能共享, 提供三级模式为不同应用提供数据视图 实体是现实中可区分的事物 实体具有一系列属性来描述自己 码是一个或者多个特殊实体属性, 可以区分一个实体. 实体可能具有多个码 实体之间有联系, 比如实体之间的一一对应, 一对多, 多对一, 多对多 数据是事物的符号化化描述 实体型是一个实体的属性集合, 实体集是同一类型实体型的集合. 实体型和实体集都可视作数据 数据模型用来描述数据, 按不同的层次有以下三种
+概念模型, 一般使用ER图, 描述实体有哪些数据和实体之间的联系 逻辑模型, 有对象, 网状和关系多种. 概念模型描述了数据对应实体的属性和实体之间联系, 而逻辑模型进一步规定了数据结构, 数据操作数据完整性约束 物理模型, 进一步确定了数据是如何存储的, ==一般采用三级模式结构== 外模式, 可以为不同的应用提供不同的逻辑视图 模式, 所有数据的统一逻辑视图 内模式, 数据的具体存储方式, 一般多个外模式对应一个模式 , 一个模式对应一个内模式 与书的不同
+==数据模型与模式是两个独立的概念, 把模式放在物理模型方面感觉更好些== 数据模型的三要素(数据结构, 操作和完整性约束)也是只放在了逻辑模型中 关系数据库 关系数据库是采用关系逻辑模型的数据库
+数据结构
+关系是数据的存储方式, 简单来说就是一张表, 表里面保存了一个实体集, 表中每一行是一个实体的各个属性, 同时实体与实体之间的联系也能以关系方式存储, 更形式来说关系是所有属性取值集合的笛卡尔积的子集 关系中有如下概念 域是某个属性的取值集合 候选码是可以标识实体的属性组, 其子集不能标识实体. 一个实体可能有多个候选码, 候选码中可能包含多个属性 主属性是在候选码中的属性, 其他属性是非主属性 数据操作方法</description>
+    </item>
+    <item>
+      <title>计算机网络</title>
+      <link>https://uhuuh.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description> 一个网卡（网络接口，网络适配器）有mac地址、ip地址和子网掩码 在linux中一个有两个网络，一个是虚拟的环回网卡，另一个是可通外网的外网网卡。环回网卡的mac地址全0 在window中好像没有环回网卡，但是环回地址也能正常使用 当socket监听地址为0.0.0.0时，会同时监听来自多个网卡上的数据 局域网数据发送 局域网数据发送有多种实现方式，一般常见是以太网 在以太网中，设备通过总线连接在一起，每个设备有mac地址进行标识 系统上只会使用ip地址进行通信，Address Resolution Protocol协议（arp）可以向机器的ip地址转化为mac地址。 查询arp表如果存在目标ip地址到目标mac地址的映射，同时这个创建时间比较新，使用该映射将目标ip地址转化为目标mac地址 否则发送以太网广播数据包，其中有本机ip，本机mac和目标ip 目标机器接受到该数据包后，存储该发送ip到发送mac的映射到自己的arp表中，同时发送一个单播以太网包，其中包含自己的mac地址。发送方收到该以太网包后，补全相应映射 其他机器接受到该数据包后，仅仅存储发送ip到发送mac的映射到自己arp表中 集线器、网桥、交换机的区别（详解干货！！！） - 知乎 (zhihu.com) 集线器将每个端口与其他端口连接起来，工作在物理层。 网桥和交换器在链路层，可以减少单播消息过程中广播的次数 网桥自动建立转化表。比如当有mac1从port1来，在端口表上建立mac1到port1的映射。如果有一个局域消息是目标地址是mac1，如果转发表中存在相应映射，将其转发到port1，否则对除了发送端口外的其他端口都进行转发 交换器是网桥的细化，在单播消息过程中的广播次数更有效。网桥学习到一个端口中有哪些mac地址，交换机学习到一个端口有哪一个mac地址 互联网数据发送 机器发送 若发送方ip在环回子网中时，数据包发往环回网卡 若发送方ip在同一个子网时，根据arp协议得到对方mac地址，按局域网方式发送 若发送方ip不在同一个子网时，根据arp协议得到网关mac地址，按局域网方式发送 当机器上存在多个网卡时，根据系统配置的路由表决定数据包分发到哪个网卡上，并且其上一般有个默认路由 网关（路由器）转发 查询路由表找到下一跳ip、下一跳mac地址和端口，将数据包中接受方ip转化为下一跳ip后，转发到相应端口按局域网方式发送 显而易见，路由器一般有多个端口，每个端口对应一个网卡 路由器的路由表建立有更复杂的算法 防火墙 防火墙在数据包接受之前提供一种隔离机制，对接受到的数据包进行鉴别和处理，同时可以实现端口转发功能 iptables上记载了一些处理规则 linux网络空间 每个网络空间从逻辑上提供独立的网络协议栈，具体包括网络设备、路由表、arp表、iptables、以及套接字(socket)等 linux本身有default网络空间 linux本身有IP Forwarding功能，其本身可以视作一个路由器，为内部多个网卡之间数据包的转发提供支持 建立veth，可以为不同网络空间中建立连接 建立bridge，同时每个网络空间通过veth连接到该bridge上，可以为多个网络空间之间建立连接 bridge本身可以有一个网卡，并且该网卡也存在于default网络空间中 bridge网卡设定ip地址 连接在bridge上的网络空间将该ip地址设定为网关ip 在default网络空间中设定IP Forwarding，使得连接在bridge上的网络空间可以与default网络空间通信 参考 详细解读Linux网络命名空间，veth， birdge与路由 - 知乎 (zhihu.com) </description>
+    </item>
+    <item>
+      <title>REST接口设计风格</title>
+      <link>https://uhuuh.github.io/posts/rest%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E9%A3%8E%E6%A0%BC/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/rest%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E9%A3%8E%E6%A0%BC/</guid>
+      <description>表示层状态转移（Representational State Transfer，REST）是一种软件架构风格，
+一个url表示资源，url返回的内容是资源的表示层（可以是html，json，jpg等），表示层中可以包含其他用来改变客户端状态的url（服务端本身是无状态的） 不同http方法表示对资源的管理，get获取资源，post创建资源，put更新资源，delete删除资源 注意点 url中仅包含名词，动词通过http方法体现 url仅表示资源标示，url中不应该有html后缀 表示层通过请求头中的Accept和Content-Type字段指定 基于资源管理，实际使用上有一些局限性 参考 理解RESTful架构 - 阮一峰的网络日志 (ruanyifeng.com) REST - Wikipedia </description>
+    </item>
+    <item>
+      <title>设计模式</title>
+      <link>https://uhuuh.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>UML类图 ==方法返回类型== 原则 依赖倒置原则: 一般而言, 相关的一些类之间形成模块, 模块之间产生依赖. 高层次的模块依赖低层次模块, 而低层次的模块容易因需求而变动, 进而导致依赖它的整个上游模块变动. 模块之上定义一个稳定的抽象层, 抽象(抽象等价于稳定)之间可以相互依赖. 模块也可以进一步细化到一个类的实现上, 类仅仅依赖抽象(接口或者抽象类) 开放封闭原则: 类不能被修改, 可以被扩展 单一职责原则: 一个类应该仅有一个变化的原因，该变化隐含了它的职责. 类的职责太多意味着这个类更有可能被修改 替换原则: 在代码中的任意地方, 派生类可以替换基类 接口隔离原则: 接口设计应该尽可能小而完备. 接口暴露越多意味接口变动的可能性变多 优先使用组合而不是继承: 组合相比于继承使类之间的耦合更小. 感觉无论是组合和继承都需要依赖另一个对象, 强调组合和继承依赖程度上的区别没有意义, 而应该强调组合和继承在功能上的区别 合成复用原则: 尽量使用合成/聚合的方式，而不是使用继承 对象创建相关 单例 当创建一个对象, 出于性能或者鲁棒性的考虑只需要该对象的一个实例 工厂方法 当创建一个对象, 这个对象可能变动 抽象工厂 当创建一系列相互依赖的对象时, 这些对象可能变动 原型 当创建一个对象时, 直接复制可能更方便时 建造者 当创建一个对象时, 这个对象的创建过程中可能使用到多种可选步骤 接口使用相关 门面 当需要封装一系列对象为子系统时 将一系列功能上相关的对象组成一个子系统, 为该子系统定义稳定的接口 适配器 当使用一个对象适配另一个它没有实现的接口时 装饰器 当给对象原有接口增加新功能时 装饰器模式通过组合和继承实现, 另外有着动态决定对象原有接口新增功能的优点, 具体在main方法中使用一个装饰器对象构造另一个装饰器对象. 如果装饰器模式通过继承实现, 由于装饰器对象继承的基类已经决定, 达不到上述优点 代理 当给对象原有接口访问时增加中间层, 一般为了接口调用的访问控制和缓存等 装饰器模式和代理模式的实现都是基于组合和继承, 由于侧重的使用场景略有不同, 代理模式只有一个代理对象, 装饰器模式可以有多个装饰器, 而多个装饰器之间可以套娃 场景表示相关 复合 当使用对象继承体系表示一个树形事物时 状态 当对象继承体系实现状态机, 避免使用条件语句实现状态机时不好动态添加状态, 需要事先确定改变状态的所有方法 单个状态对象只需要一个实例, 一般命令模式会结合单例模式 状态对象仅仅表示该状态和状态的转移, 一般持有当前状态和负责修改当前状态在另一个对象中 策略 当使用对象表示策略时, 实现策略的运行时可替换 使用上可以等同于一些语言中的函数对象 命令 当使用对象表示请求时, 实现请求的记录和撤销等 官方的UML类图过于理想化 解析器 略, 用的很少 迭代器 当需要提供通用的迭代对象集合的方法时 访问者 当需要给对象集合中添加各种各样的处理对象的方法时 访问器针对不同的元素实现不同的处理 有很大的限制性, 需要对象集合中的对象元素已经确定 中介者 当多个对象相互交互时, 需要修改其中的一个对象时需要改动相互依赖的所有对象 实现时添加一个中介者, 所有对象与中介者交互, 一般修改一个对象时只需要对象改对象和中介者 观察者 当对象的状态变化需要通知其他对象时, 使用该模式后可以增加和删除通知者 责任链 当一个请求有多种处理者时, 使用该模式后动态增加和删除处理者 备忘录 当需要保存与加载对象的状态 略有过时, 现在可以使用对象序列化和反序列化替代 其他 模板方法 当对象方法中某些处理上固定时, 使用该模式后可以只需要实现方法中变化的部分 实现时借助抽象类, 具体要将一个方法拆分成固定和变化两个方法 桥接 当对象继承体系要对应两个维度上的变化时, 比如图形的图形和颜色 如果仅仅使用继承实现的话有子类数量爆炸的问题, 需要结合继承和组合实现.</description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://uhuuh.github.io/posts/git/</link>
+      <pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/git/</guid>
+      <description>实现 相比于其他版本控制系统, git每个版本保存快照(文件内容的二进制压缩表示)而不是与上一个版本的变更, 在版本之间的切换速度很快, 但是相应占用大量存储空间
+实现一个基于快照的版本控制系统, 容易想到如下步骤
+记录当前版本工作目录下所有文件内容, 同时可以基于一个版本进行修改派生出不同的多个版本, 这样版本之间构成一个树状结构 commit对象, 不同commit对象有指针连接, 所有commit对象之间构成一棵树 进一步优化存储空间, 使不同版本之间的相同内容文件只保存一份. 建立文件内容摘要到文件内容的键值数据库, tree与blob对象对应目录和文件, commit对象再对应工作目录的tree对象 提供暂存功能, 而不是每次保存都生成一个新版本. 进入一个中间层索引区, 现在存在三层结构工作区, 索引区和仓库区. 索引区 进一步实现合并版本生成新版本, 而不是之前仅仅只能修改一个版本生成一个新版本. 两个版本合并时遵循一定合并策略, 该策略找到公共祖先节点后, 执行三方合并. 所有commit构成一个有向无环图 初始化git仓库之后, 工作目录下有.git隐藏目录, 里面保存有实现版本控制的一些文件
+参考 [中文] 这才是真正的 Git——Git 内部原理揭秘！（freeCodeConf 2019 深圳站）_哔哩哔哩_bilibili 这才是真正的Git——Git内部原理 - LZANE | 李泽帆（靓仔） 这才是真正的Git——分支合并 - LZANE | 李泽帆（靓仔） 图解Git (marklodato.github.io) 介绍git常见命令, 其中结合图示展示命令流程 Learn Git Branching 玩动画形式学习git </description>
+    </item>
+    <item>
+      <title>加密</title>
+      <link>https://uhuuh.github.io/posts/%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E5%8A%A0%E5%AF%86/</guid>
+      <description>相关算法 对称加密算法, 使用同一个秘钥加密解密 DES, 已被破解 三重DES, 加密性好一点, 但是处理速度不高, 只是为了兼容DES而使用 AES, 广泛使用 非对称加密算法, 算法生成两个秘钥, 一个加密需要使用另一个解密, 两个秘钥之间功能相同, 只是公开的那个叫公钥保存的那个叫私钥. 加密解密速度是对称加密算法的百分之几 RSA, 广泛使用. 基于异或和质因子分解, 为了保证加密性最好选用2024位质数 散列算法, 针对不同长度的消息产生固定长度散列值. 一般无法从散列值逆推出消息, 要求不同的消息生成不同的散列值 MD5, 生成128位散列值, 已被破解 SHA-1, 生成160位散列值, 已被破解 SHA-2, 包括SHA-256, SHA-384和SHA-512, 广泛使用 加密传输 一般安全传输加密消息需要满足以下三个条件
+消息内容加密 消息内容防篡改 发送方和接受方的身份认证 使用对称加密技术
+流程, 假设接受方和发送方已经安全的同步秘钥 发送方使用对称加密算法加密消息 消息认证码同时基于消息内容和秘钥使用散列算法生成散列值, 将其作为消息的一部分. 然后发送消息 接收方使用秘钥解密后, 基于消息内容和秘钥再生成一个消息认证码, 与消息中附加的消息认证码对比, 确保消息没有被篡改和消息是被秘钥持有者发送 问题 由于对称加密双方无法安全的同步秘钥, 上述方式存在隐患 ==如果消息认证码在生成散列值中不加入秘钥, 只能通过消息被解密后是否乱码确定发送方身份, 而加入秘钥后, 只需要简单比较两次散列值是否相等 ==消息认证码仅仅使用消息内容生成散列值, 发送方按照上述消息认证码生成方式使用秘钥A加码后发送消息, 接收方使用另一个秘钥B解密消息, 消息里面的消息认证码还有效吗? 如果无效的话, 消息认证码计算散列值的时候还需要包含秘钥吗 非对称加密技
+生成两个秘钥, 使用一个加密后可以使用另一个解密, 一把将自身保存的叫私钥, 公开的叫公钥 加密消息. 发送方获取接受方的公钥加密, 然后接受方收到消息后通过自身保存的私钥解密 保护消息完整性.</description>
+    </item>
+    <item>
+      <title>读书笔记 effective modern cpp</title>
+      <link>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp/</link>
+      <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-modern-cpp/</guid>
+      <description>右值引用, 移动语义, 完美转发 23.理解std::move和std::forward 函数的形参是左值, 函数的返回值是右值, 即便该然回值的类型是右值引用 move只是将实参转化右值引用, 经过函数返回后变成右值 template&amp;lt;typename T&amp;gt; typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp; move(T&amp;amp;&amp;amp; param) { using ReturnType = typename remove_reference&amp;lt;T&amp;gt;::type&amp;amp;&amp;amp;; return static_cast&amp;lt;ReturnType&amp;gt;(param); // move只进行类型转换 } 右值引用接受一个非const的右值, 因为右值引用一般用于移动语义, 在其中要修改对象内部成员. 当对象存在一个拷贝构造函数和移动构造函数时, const右值会调用拷贝构造函数 class Annotation { public: explicit Annotation(const std::string text) ： value(std::move(text)) //“移动”text到value里；这段代码执行起来 { … } //并不是看起来那样 … private: std::string value; }; 在函数内部调用forward转化形参为实参相应类型的变量 void process(const Widget&amp;amp; lvalArg); //处理左值 void process(Widget&amp;amp;&amp;amp; rvalArg); //处理右值 template&amp;lt;typename T&amp;gt; //用以转发param到process的模板 void logAndProcess(T&amp;amp;&amp;amp; param) { auto now = std::chrono::system_clock::now(); makeLogEntry(&amp;#34;Calling &amp;#39;process&amp;#39;&amp;#34;, now); process(std::forward&amp;lt;T&amp;gt;(param)); // 没经过forward只能调用左值版本 } forward可以替换move class Widget { public: Widget(Widget&amp;amp;&amp;amp; rhs) : s(std::move(rhs.</description>
+    </item>
+    <item>
+      <title>读书笔记 mysql是怎样运行的</title>
+      <link>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/</guid>
+      <description>4.从一条记录说起 数据库有不同的表组成, 表有不同的列组成, 这一章介绍了列是怎么存储的
+一行数据也被成为一条记录, 一行中的不同列也被称为不同的字段
+存储引擎. InnoDB是mysql默认的存储引擎, 也是最常用的存储引擎
+==逆序存储==
+书中介绍要讲到4中行格式, 其中compact和redundant有介绍, dynamic和compressed和compact类似, 但是处理溢出行有些分歧, 然后compressed还会使用压缩算法对行内容进行压缩
+隐藏列 row_id 当用户定义表结构时没有确定主键, 并且没有不允许null和unique的列, 自动添加该列作为键 trx_id roll_pointer compact行格式 变长字符长度列表, 所有变长列(下图中的varchar)的长度信息 只存非null的列 长度信息可由多个字节确定, 首先读取一个字节第一位位0说明该字节可以表示完整的长度, 否则记录读取随后的字节. 这种策略类似字符集的变成编码策略 当char类型的列为null时, 不占据实际内存 特别的, 当采用变长编码的字符集时, 定长的一列(char)的长度信息也应该保存到该列表中, 并且该列内容至少分配M(char的长度是M) 特别的, 当长度信息需要大于2字节保存时, 溢出处理 null值列表, 所有可null列的位指示信息 按字节对齐 记录头信息, 由固定的5字节组成, 共40二进制位 redundant行格式 古老的行格式, 在mysql5之前被使用, 相比于compact空间效率更差
+字段长度偏移列表 从记录真实数据部分, 各列偏移 根据记录真实数据的总长度确定(从表定义可知, 另外记录头中也有一个位可以知道该信息) 各列偏移量是用1个字节还是2两个字节表示 无论偏移量使用1个字节还是2个字节, 第一位都另做他用, 用来表示该列是否为null 当偏移量需要大于2字节时, 溢出处理 char为null时占据实际的内存, 里面都为0 对于char类型的列和使用变长编码的字符集, 直接为该列分配最大可能得空间 记录头信息, 共使用6字节 溢出列 ==什么时候列太长而需要溢出处理==
+在列格式中无论是列的长度还是偏移量, 最多使用2字节(页大小是16KB, 2字节的足以表示这个页面下的长度和偏移)来表示 一页(默认16KB)至少应该能够保存两条记录(要不然失去了平衡树的意义), 可以根据页大小, 页本身的大小计算出列可以的最大长度 当需要更多字节表示时要特殊处理.</description>
+    </item>
+    <item>
+      <title>go语言</title>
+      <link>https://uhuuh.github.io/posts/go%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/go%E8%AF%AD%E8%A8%80/</guid>
+      <description>go
+模块包含多个包, 每个模块有唯一标识 import和mod文件中处理的都是模块, 本地模块初始化时指定模块标识, 本地模块import其他本地模块时需要replace到本地路径, 但是同一个workspace下的模块不需要 参考 [golang] 仓库，模块和包 - 知乎 (zhihu.com) 结构调用方法和属性时指针自动解引用和取引用 方法定义时值接受者和指针接受者, 结构的方法和普通函数相比, 需要传入一个结构,, 值接受者相当于传入一个对象副本, 指针接受者可以修改原始结构 Golang中自动“取引用”和“解引用”对原值的影响_seafooler的博客-CSDN博客 可变参数和数组展开 go语言之三个点用法 | Hexo (melonshell.github.io) 强制类型转换和类型断言 golang的强制类型转换 - Go语言中文网 - Golang中文社区 (studygolang.com) 文件写入在操作系统层面上是互斥的, 但是同一程序的协程之间还是需要加锁, 应为协程在操作系统层面不可见 defer 用法 :=, 并不总是定义变量, 如果右边是函数并且该函数返回多个值时, 左边如果有已经定义的变量则使用它 传参时struct, array会内容复制, string, slice会地址复制 Golang方法调用值拷贝与引用拷贝 - Go语言中文网 - Golang中文社区 (studygolang.com) go rpc客户端调用时replay要默认初始化. 因为内部使用gob(go默认的二进制存储方案, 感觉类似python的pickle)进行序列化反序列化, gob不会处理0值. 例如replay的a属性为7, 调用rpc后将a修改为0, 返回的a还是维持原来的7 net/rpc: zero values not transmitted using encoding/gob · Issue #8997 · golang/go (github.</description>
+    </item>
+    <item>
+      <title>读书笔记 effective C&#43;&#43;</title>
+      <link>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-c&#43;&#43;/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-effective-c&#43;&#43;/</guid>
+      <description>让自己习惯c++ 1.c++是一个语言联邦 c++支持多种编程泛型, 面向过程, 基于对象, 面向对象, 泛型, 元编程
+c++可以视为一个语言联邦, 由以下四个部分组成
+c object oriented c++ template c++ stl 2.替换define 当define一个常量时, 调试不方便, 只剩下数值没有原来的变量名信息
+使用const定义全局常量 使用const在类中定义常量 class A { private: static const double a; // 声明, static确保所有类只有一份该变量 } const double A::a = 1.35; // static成员变量必须在类外定义 - 旧式编译器不支持static成员变量在声明时获得初值class A{ private: static const double a; } const double A::a = 1.35; - 然后再类编译又需要一个常量值时(比如确定数组的大小), 可以使用enum hack技术. enum和define有很多相似的地方, enum最后会被替换成int, enum不能取地址class A{ private: enum {n = 5}; int arr[n]; } 当define一个函数时, 写起来很麻烦, 而且容易出错</description>
+    </item>
+  </channel>
+</rss>

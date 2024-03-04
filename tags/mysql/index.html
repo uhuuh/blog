@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>MYSQL | uh</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://uhuuh.github.io/tags/mysql/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4599eadb9eb2ad3d0a8d6827b41a8fda8f2f4af226b63466c09c5fddbc8706b7.css" integrity="sha256-RZnq256yrT0KjWgntBqP2o8vSvImtjRmwJxf3byHBrc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://uhuuh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://uhuuh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://uhuuh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://uhuuh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://uhuuh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://uhuuh.github.io/tags/mysql/index.xml">
+<link rel="alternate" hreflang="en" href="https://uhuuh.github.io/tags/mysql/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="MYSQL" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://uhuuh.github.io/tags/mysql/" /><meta property="og:image" content="https://uhuuh.github.io/images/papermod-cover.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://uhuuh.github.io/images/papermod-cover.png"/>
+
+<meta name="twitter:title" content="MYSQL"/>
+<meta name="twitter:description" content=""/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://uhuuh.github.io/" accesskey="h" title="uh (Alt + H)">uh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://uhuuh.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://uhuuh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://uhuuh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://uhuuh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://uhuuh.github.io/tags/">Tags</a></div>
+  <h1>
+    MYSQL
+    <a href="/tags/mysql/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">读书笔记 mysql是怎样运行的
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>4.从一条记录说起 数据库有不同的表组成, 表有不同的列组成, 这一章介绍了列是怎么存储的
+一行数据也被成为一条记录, 一行中的不同列也被称为不同的字段
+存储引擎. InnoDB是mysql默认的存储引擎, 也是最常用的存储引擎
+==逆序存储==
+书中介绍要讲到4中行格式, 其中compact和redundant有介绍, dynamic和compressed和compact类似, 但是处理溢出行有些分歧, 然后compressed还会使用压缩算法对行内容进行压缩
+隐藏列 row_id 当用户定义表结构时没有确定主键, 并且没有不允许null和unique的列, 自动添加该列作为键 trx_id roll_pointer compact行格式 变长字符长度列表, 所有变长列(下图中的varchar)的长度信息 只存非null的列 长度信息可由多个字节确定, 首先读取一个字节第一位位0说明该字节可以表示完整的长度, 否则记录读取随后的字节. 这种策略类似字符集的变成编码策略 当char类型的列为null时, 不占据实际内存 特别的, 当采用变长编码的字符集时, 定长的一列(char)的长度信息也应该保存到该列表中, 并且该列内容至少分配M(char的长度是M) 特别的, 当长度信息需要大于2字节保存时, 溢出处理 null值列表, 所有可null列的位指示信息 按字节对齐 记录头信息, 由固定的5字节组成, 共40二进制位 redundant行格式 古老的行格式, 在mysql5之前被使用, 相比于compact空间效率更差
+字段长度偏移列表 从记录真实数据部分, 各列偏移 根据记录真实数据的总长度确定(从表定义可知, 另外记录头中也有一个位可以知道该信息) 各列偏移量是用1个字节还是2两个字节表示 无论偏移量使用1个字节还是2个字节, 第一位都另做他用, 用来表示该列是否为null 当偏移量需要大于2字节时, 溢出处理 char为null时占据实际的内存, 里面都为0 对于char类型的列和使用变长编码的字符集, 直接为该列分配最大可能得空间 记录头信息, 共使用6字节 溢出列 ==什么时候列太长而需要溢出处理==
+在列格式中无论是列的长度还是偏移量, 最多使用2字节(页大小是16KB, 2字节的足以表示这个页面下的长度和偏移)来表示 一页(默认16KB)至少应该能够保存两条记录(要不然失去了平衡树的意义), 可以根据页大小, 页本身的大小计算出列可以的最大长度 当需要更多字节表示时要特殊处理....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-22 00:00:00 +0000 UTC'>September 22, 2023</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to 读书笔记 mysql是怎样运行的" href="https://uhuuh.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-mysql%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://uhuuh.github.io/">uh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

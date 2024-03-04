@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HTTP on uh</title>
+    <link>https://uhuuh.github.io/tags/http/</link>
+    <description>Recent content in HTTP on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>REST接口设计风格</title>
+      <link>https://uhuuh.github.io/posts/rest%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E9%A3%8E%E6%A0%BC/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/rest%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E9%A3%8E%E6%A0%BC/</guid>
+      <description>表示层状态转移（Representational State Transfer，REST）是一种软件架构风格，
+一个url表示资源，url返回的内容是资源的表示层（可以是html，json，jpg等），表示层中可以包含其他用来改变客户端状态的url（服务端本身是无状态的） 不同http方法表示对资源的管理，get获取资源，post创建资源，put更新资源，delete删除资源 注意点 url中仅包含名词，动词通过http方法体现 url仅表示资源标示，url中不应该有html后缀 表示层通过请求头中的Accept和Content-Type字段指定 基于资源管理，实际使用上有一些局限性 参考 理解RESTful架构 - 阮一峰的网络日志 (ruanyifeng.com) REST - Wikipedia </description>
+    </item>
+  </channel>
+</rss>

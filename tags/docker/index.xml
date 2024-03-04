@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on uh</title>
+    <link>https://uhuuh.github.io/tags/docker/</link>
+    <description>Recent content in Docker on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://uhuuh.github.io/posts/docker/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/docker/</guid>
+      <description> (https://www.cnblogs.com/mxnote/p/17101905.html)[docker启动容器后, 马上结束 - MasonLee - 博客园 (cnblogs.com)] 容器中没有一直运行的进程的会自动退出 网络 (Docker的4种网络模式-阿里云开发者社区)[https://developer.aliyun.com/article/653905] 提供如下网络模式
+host 与宿主机在一个网络环境 container 与一个容器在一个网络环境 bridge 连接到一个网络空间中。默认模式 none 与外部没有网路连接 bridge模式通信，依靠linux的网络命名空间实现
+容器之间通信 运行容器时通过name选项指定主机名，再通过dns解析到合适的容器ip地址 宿主机访问容器 运行容器时通过p选项指定要暴露的端口 容器访问宿主机 通过host.docker.internal域名，再通过dns解析到合适的宿主机环回网卡ip地址 </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GO on uh</title>
+    <link>https://uhuuh.github.io/tags/go/</link>
+    <description>Recent content in GO on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go语言</title>
+      <link>https://uhuuh.github.io/posts/go%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/go%E8%AF%AD%E8%A8%80/</guid>
+      <description>go
+模块包含多个包, 每个模块有唯一标识 import和mod文件中处理的都是模块, 本地模块初始化时指定模块标识, 本地模块import其他本地模块时需要replace到本地路径, 但是同一个workspace下的模块不需要 参考 [golang] 仓库，模块和包 - 知乎 (zhihu.com) 结构调用方法和属性时指针自动解引用和取引用 方法定义时值接受者和指针接受者, 结构的方法和普通函数相比, 需要传入一个结构,, 值接受者相当于传入一个对象副本, 指针接受者可以修改原始结构 Golang中自动“取引用”和“解引用”对原值的影响_seafooler的博客-CSDN博客 可变参数和数组展开 go语言之三个点用法 | Hexo (melonshell.github.io) 强制类型转换和类型断言 golang的强制类型转换 - Go语言中文网 - Golang中文社区 (studygolang.com) 文件写入在操作系统层面上是互斥的, 但是同一程序的协程之间还是需要加锁, 应为协程在操作系统层面不可见 defer 用法 :=, 并不总是定义变量, 如果右边是函数并且该函数返回多个值时, 左边如果有已经定义的变量则使用它 传参时struct, array会内容复制, string, slice会地址复制 Golang方法调用值拷贝与引用拷贝 - Go语言中文网 - Golang中文社区 (studygolang.com) go rpc客户端调用时replay要默认初始化. 因为内部使用gob(go默认的二进制存储方案, 感觉类似python的pickle)进行序列化反序列化, gob不会处理0值. 例如replay的a属性为7, 调用rpc后将a修改为0, 返回的a还是维持原来的7 net/rpc: zero values not transmitted using encoding/gob · Issue #8997 · golang/go (github.</description>
+    </item>
+  </channel>
+</rss>

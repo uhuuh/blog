@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on uh</title>
+    <link>https://uhuuh.github.io/tags/linux/</link>
+    <description>Recent content in Linux on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux IO模型</title>
+      <link>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</guid>
+      <description>总览
+阻塞就是发起读取数据请求的时，当数据还没准备就绪的时候，这时请求是即刻返回，还是在这里等待数据的就绪，如果需要等待的话就是阻塞，反之如果即刻返回就是非阻塞 在IO模型里面如果请求方从发起请求到数据最后完成的这一段过程中都需要自己参与，那么这种我们就称为同步请求；反之，如果应用发送完指令后就不再参与过程了，只需要等待最终完成结果的通知，那么这就属于异步 阻塞IO
+调用read时, 将进程添加进socket的等待队列中 网卡接受到数据时触发中断, 保存网络数据到socket的缓存中, 唤醒等待队列中的进程 非阻塞IO
+多路复用IO
+select 使用一个位数组保存监听的一系列socket, 该位数组中第i位为1时, 说明监听fd为i的socket 调用时, 将位数组复制到内核中, 依次检查位数组中的有效socket是否有可处理事件, 如果有可处理事件在另一个位数组中好对应的socket, 返回 缺点 监听的socket数量有限, 因为位数组的长度有限, 内核代码有限制位数组的最大长度 调用开销大, 每次调用都需要把位数组复制到内核中 调用时检查开销大, 每次检查时需要依次遍历位数组上的所有有效socket, 其开销与监听的socket呈线性关系 poll 克服了select的第一个缺点, 使用一个链表保存监听所有的socket epoll 在poll的基础上克服了select剩下的第二个和第三个缺点 内核内部维护一个红黑树和一个等待队列, 红黑树保存了d到监听事件的对应关系, 等待队列保存了有效的fd fd有效时, 将该fd添加到等待队列中 信号驱动IO
+当数据就绪时, 内核给应用发送一个信号, 应用调用信号处理函数, 该函数中调用read将数据从内核缓存区复制到应用缓存区 异步IO
+当数据就绪时, 内核将数据从内核缓存区复制到应用缓存区, 然后给应用发送一个信号 与信号驱动IO区别是, 内核将数据从内核缓存区复制到应用缓存区 问题 为什么select调用时要将位数组复制到内核, 内核使用位数组的指针不行吗? 是出于安全的考虑吗 socket细节, fd细节 参考 看一遍就理解：IO 模型详解-常用的io模型 (51cto.com) 五种IO模型介绍 100%弄明白5种IO模型 - 知乎 (zhihu.com) 最后部分中阻塞与非阻塞介绍, 同步与非同步介绍 IO多路复用——深入浅出理解select、poll、epoll的实现 - 知乎 (zhihu.</description>
+    </item>
+  </channel>
+</rss>

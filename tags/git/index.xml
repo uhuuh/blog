@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on uh</title>
+    <link>https://uhuuh.github.io/tags/git/</link>
+    <description>Recent content in Git on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 17 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>https://uhuuh.github.io/posts/git/</link>
+      <pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/git/</guid>
+      <description>实现 相比于其他版本控制系统, git每个版本保存快照(文件内容的二进制压缩表示)而不是与上一个版本的变更, 在版本之间的切换速度很快, 但是相应占用大量存储空间
+实现一个基于快照的版本控制系统, 容易想到如下步骤
+记录当前版本工作目录下所有文件内容, 同时可以基于一个版本进行修改派生出不同的多个版本, 这样版本之间构成一个树状结构 commit对象, 不同commit对象有指针连接, 所有commit对象之间构成一棵树 进一步优化存储空间, 使不同版本之间的相同内容文件只保存一份. 建立文件内容摘要到文件内容的键值数据库, tree与blob对象对应目录和文件, commit对象再对应工作目录的tree对象 提供暂存功能, 而不是每次保存都生成一个新版本. 进入一个中间层索引区, 现在存在三层结构工作区, 索引区和仓库区. 索引区 进一步实现合并版本生成新版本, 而不是之前仅仅只能修改一个版本生成一个新版本. 两个版本合并时遵循一定合并策略, 该策略找到公共祖先节点后, 执行三方合并. 所有commit构成一个有向无环图 初始化git仓库之后, 工作目录下有.git隐藏目录, 里面保存有实现版本控制的一些文件
+参考 [中文] 这才是真正的 Git——Git 内部原理揭秘！（freeCodeConf 2019 深圳站）_哔哩哔哩_bilibili 这才是真正的Git——Git内部原理 - LZANE | 李泽帆（靓仔） 这才是真正的Git——分支合并 - LZANE | 李泽帆（靓仔） 图解Git (marklodato.github.io) 介绍git常见命令, 其中结合图示展示命令流程 Learn Git Branching 玩动画形式学习git </description>
+    </item>
+  </channel>
+</rss>

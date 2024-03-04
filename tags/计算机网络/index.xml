@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>计算机网络 on uh</title>
+    <link>https://uhuuh.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 计算机网络 on uh</description>
+    <image>
+      <title>uh</title>
+      <url>https://uhuuh.github.io/images/papermod-cover.png</url>
+      <link>https://uhuuh.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://uhuuh.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux IO模型</title>
+      <link>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/linux-io%E6%A8%A1%E5%9E%8B/</guid>
+      <description>总览
+阻塞就是发起读取数据请求的时，当数据还没准备就绪的时候，这时请求是即刻返回，还是在这里等待数据的就绪，如果需要等待的话就是阻塞，反之如果即刻返回就是非阻塞 在IO模型里面如果请求方从发起请求到数据最后完成的这一段过程中都需要自己参与，那么这种我们就称为同步请求；反之，如果应用发送完指令后就不再参与过程了，只需要等待最终完成结果的通知，那么这就属于异步 阻塞IO
+调用read时, 将进程添加进socket的等待队列中 网卡接受到数据时触发中断, 保存网络数据到socket的缓存中, 唤醒等待队列中的进程 非阻塞IO
+多路复用IO
+select 使用一个位数组保存监听的一系列socket, 该位数组中第i位为1时, 说明监听fd为i的socket 调用时, 将位数组复制到内核中, 依次检查位数组中的有效socket是否有可处理事件, 如果有可处理事件在另一个位数组中好对应的socket, 返回 缺点 监听的socket数量有限, 因为位数组的长度有限, 内核代码有限制位数组的最大长度 调用开销大, 每次调用都需要把位数组复制到内核中 调用时检查开销大, 每次检查时需要依次遍历位数组上的所有有效socket, 其开销与监听的socket呈线性关系 poll 克服了select的第一个缺点, 使用一个链表保存监听所有的socket epoll 在poll的基础上克服了select剩下的第二个和第三个缺点 内核内部维护一个红黑树和一个等待队列, 红黑树保存了d到监听事件的对应关系, 等待队列保存了有效的fd fd有效时, 将该fd添加到等待队列中 信号驱动IO
+当数据就绪时, 内核给应用发送一个信号, 应用调用信号处理函数, 该函数中调用read将数据从内核缓存区复制到应用缓存区 异步IO
+当数据就绪时, 内核将数据从内核缓存区复制到应用缓存区, 然后给应用发送一个信号 与信号驱动IO区别是, 内核将数据从内核缓存区复制到应用缓存区 问题 为什么select调用时要将位数组复制到内核, 内核使用位数组的指针不行吗? 是出于安全的考虑吗 socket细节, fd细节 参考 看一遍就理解：IO 模型详解-常用的io模型 (51cto.com) 五种IO模型介绍 100%弄明白5种IO模型 - 知乎 (zhihu.com) 最后部分中阻塞与非阻塞介绍, 同步与非同步介绍 IO多路复用——深入浅出理解select、poll、epoll的实现 - 知乎 (zhihu.</description>
+    </item>
+    <item>
+      <title>计算机网络</title>
+      <link>https://uhuuh.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://uhuuh.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description> 一个网卡（网络接口，网络适配器）有mac地址、ip地址和子网掩码 在linux中一个有两个网络，一个是虚拟的环回网卡，另一个是可通外网的外网网卡。环回网卡的mac地址全0 在window中好像没有环回网卡，但是环回地址也能正常使用 当socket监听地址为0.0.0.0时，会同时监听来自多个网卡上的数据 局域网数据发送 局域网数据发送有多种实现方式，一般常见是以太网 在以太网中，设备通过总线连接在一起，每个设备有mac地址进行标识 系统上只会使用ip地址进行通信，Address Resolution Protocol协议（arp）可以向机器的ip地址转化为mac地址。 查询arp表如果存在目标ip地址到目标mac地址的映射，同时这个创建时间比较新，使用该映射将目标ip地址转化为目标mac地址 否则发送以太网广播数据包，其中有本机ip，本机mac和目标ip 目标机器接受到该数据包后，存储该发送ip到发送mac的映射到自己的arp表中，同时发送一个单播以太网包，其中包含自己的mac地址。发送方收到该以太网包后，补全相应映射 其他机器接受到该数据包后，仅仅存储发送ip到发送mac的映射到自己arp表中 集线器、网桥、交换机的区别（详解干货！！！） - 知乎 (zhihu.com) 集线器将每个端口与其他端口连接起来，工作在物理层。 网桥和交换器在链路层，可以减少单播消息过程中广播的次数 网桥自动建立转化表。比如当有mac1从port1来，在端口表上建立mac1到port1的映射。如果有一个局域消息是目标地址是mac1，如果转发表中存在相应映射，将其转发到port1，否则对除了发送端口外的其他端口都进行转发 交换器是网桥的细化，在单播消息过程中的广播次数更有效。网桥学习到一个端口中有哪些mac地址，交换机学习到一个端口有哪一个mac地址 互联网数据发送 机器发送 若发送方ip在环回子网中时，数据包发往环回网卡 若发送方ip在同一个子网时，根据arp协议得到对方mac地址，按局域网方式发送 若发送方ip不在同一个子网时，根据arp协议得到网关mac地址，按局域网方式发送 当机器上存在多个网卡时，根据系统配置的路由表决定数据包分发到哪个网卡上，并且其上一般有个默认路由 网关（路由器）转发 查询路由表找到下一跳ip、下一跳mac地址和端口，将数据包中接受方ip转化为下一跳ip后，转发到相应端口按局域网方式发送 显而易见，路由器一般有多个端口，每个端口对应一个网卡 路由器的路由表建立有更复杂的算法 防火墙 防火墙在数据包接受之前提供一种隔离机制，对接受到的数据包进行鉴别和处理，同时可以实现端口转发功能 iptables上记载了一些处理规则 linux网络空间 每个网络空间从逻辑上提供独立的网络协议栈，具体包括网络设备、路由表、arp表、iptables、以及套接字(socket)等 linux本身有default网络空间 linux本身有IP Forwarding功能，其本身可以视作一个路由器，为内部多个网卡之间数据包的转发提供支持 建立veth，可以为不同网络空间中建立连接 建立bridge，同时每个网络空间通过veth连接到该bridge上，可以为多个网络空间之间建立连接 bridge本身可以有一个网卡，并且该网卡也存在于default网络空间中 bridge网卡设定ip地址 连接在bridge上的网络空间将该ip地址设定为网关ip 在default网络空间中设定IP Forwarding，使得连接在bridge上的网络空间可以与default网络空间通信 参考 详细解读Linux网络命名空间，veth， birdge与路由 - 知乎 (zhihu.com) </description>
+    </item>
+  </channel>
+</rss>
